@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="VÉLORA STUDIO® — Digital experiences. Designed to be remembered.">
+<title>VÉLORA STUDIO® — Digital Experiences</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#090909;
+  --panel:#10100f;
+  --ivory:#f0ede6;
+  --muted:#96938c;
+  --gold:#c8b28b;
+  --line:rgba(240,237,230,.15);
+  --serif:"Italiana",Georgia,serif;
+  --sans:"DM Sans",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ivory);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.10;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.19'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:#111}
+.wrap{width:min(1400px,calc(100% - 100px));margin-inline:auto}
+.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;line-height:1.8}
+.section-heading{font-family:var(--serif);font-size:clamp(45px,7vw,96px);line-height:.98;font-weight:400;letter-spacing:-.035em}
+.section-heading em{color:var(--gold);font-weight:400}
+
+/* INTRO */
+.intro{position:fixed;inset:0;z-index:100;background:#080808;display:grid;place-items:center;text-align:center;clip-path:inset(0);transition:clip-path 1.1s cubic-bezier(.77,0,.18,1)}
+.intro.exit{clip-path:inset(0 0 100% 0);pointer-events:none}
+.intro-inner{animation:introIn 1.1s ease both}
+.intro-logo{font-family:var(--serif);font-size:clamp(44px,10vw,105px);letter-spacing:.13em;padding-left:.13em}
+.intro-logo sup{font:11px var(--sans);vertical-align:top;letter-spacing:0}
+.intro-rule{width:0;height:1px;margin:26px auto;background:var(--gold);animation:ruleIn 1.1s .4s ease forwards}
+.intro-sub{color:#aaa69d;font-size:9px;letter-spacing:.32em;text-transform:uppercase}
+.intro-skip{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);border:0;background:transparent;color:#8c887f;font-size:10px;letter-spacing:.18em;cursor:pointer;padding:10px}
+@keyframes introIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ruleIn{to{width:120px}}
+
+/* NAV */
+.nav{height:82px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);position:relative;z-index:30}
+.nav-logo{font-family:var(--serif);letter-spacing:.14em;font-size:20px}
+.nav-logo sup{font:9px var(--sans);letter-spacing:0}
+.nav-links{display:flex;align-items:center;gap:32px;font-size:10px;letter-spacing:.08em;color:#c0bcb3}
+.nav-links a:not(.nav-cta):hover{color:var(--gold)}
+.nav-cta{padding:12px 16px;border:1px solid rgba(200,178,139,.65);transition:background .3s,color .3s}
+.nav-cta:hover{background:var(--gold);color:#090909}
+
+/* HERO */
+.hero{min-height:min(830px,calc(100svh - 82px));position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;width:700px;height:700px;right:-80px;top:-60px;background:radial-gradient(circle,rgba(173,146,103,.09),transparent 66%);z-index:-1}
+.hero-copy{position:relative;z-index:3;padding-block:90px}
+.hero-copy .eyebrow{margin-bottom:30px}
+.hero-title{font-family:var(--serif);font-size:clamp(72px,10.3vw,150px);line-height:.76;font-weight:400;letter-spacing:-.055em}
+.hero-title span{display:block}
+.hero-title .outline{color:transparent;-webkit-text-stroke:1px rgba(240,237,230,.76);padding-block:10px}
+.hero-description{color:#aaa69d;font-size:12px;line-height:2;max-width:340px;margin-top:38px}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:25px;margin-top:34px}
+.button-primary{display:inline-flex;justify-content:center;align-items:center;gap:22px;background:var(--ivory);color:#10100f;padding:17px 21px;font-size:10px;letter-spacing:.11em;text-transform:uppercase;transition:background .3s,transform .3s}
+.button-primary:hover{background:var(--gold);transform:translateY(-3px)}
+.text-link{font-size:10px;color:#d0cbc1;letter-spacing:.1em;border-bottom:1px solid #666057;padding-bottom:5px}
+.hero-visual{min-height:540px;position:relative;display:grid;place-items:center;perspective:1000px}
+.orb-scene{width:min(100%,510px);aspect-ratio:1;position:relative;display:grid;place-items:center;transform-style:preserve-3d;transition:transform .18s ease-out}
+.orb-halo{position:absolute;width:86%;height:86%;border-radius:50%;background:radial-gradient(circle,rgba(206,180,139,.13),transparent 65%);filter:blur(13px)}
+.orb{position:relative;width:49%;aspect-ratio:1;border-radius:50%;background:radial-gradient(ellipse at 26% 18%,rgba(255,255,255,.95) 0%,transparent 9%),radial-gradient(ellipse at 32% 22%,#d4d4d0 0%,#888985 10%,#292a2a 29%,#090909 48%,#77746d 60%,#d2c8b6 63%,#363633 70%,#080808 78%);box-shadow:inset -19px -18px 40px #000,inset 9px 8px 28px rgba(255,255,255,.26),0 0 65px rgba(199,177,137,.09);animation:floatOrb 7s ease-in-out infinite;z-index:2}
+.orb::after{content:"";position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(255,255,255,.13);box-shadow:inset 0 0 35px rgba(255,255,255,.08)}
+.orbit{position:absolute;border:1px solid rgba(207,190,160,.62);border-radius:50%;transform-style:preserve-3d;pointer-events:none}
+.orbit.one{width:90%;height:35%;transform:rotate(-34deg) rotateY(58deg);animation:orbitOne 13s linear infinite}
+.orbit.two{width:88%;height:47%;transform:rotate(45deg) rotateX(65deg);border-color:rgba(239,237,229,.35);animation:orbitTwo 17s linear infinite}
+.orbit.three{width:63%;height:102%;transform:rotate(-35deg) rotateY(67deg);border-color:rgba(200,178,139,.34);animation:orbitOne 19s linear infinite reverse}
+.orb-dot{position:absolute;width:11px;height:11px;background:#e1d2b3;border-radius:50%;box-shadow:0 0 20px rgba(225,210,179,.7);top:29%;right:13%;z-index:4}
+.visual-index{position:absolute;right:0;bottom:7%;color:#79756d;font-size:9px;letter-spacing:.16em;writing-mode:vertical-rl}
+.visual-caption{position:absolute;left:2%;bottom:10%;font-family:var(--serif);font-size:17px;color:#c4bba9}
+.visual-caption small{display:block;font-family:var(--sans);color:#77736b;font-size:8px;letter-spacing:.17em;margin-top:8px}
+@keyframes floatOrb{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-13px) rotate(3deg)}}
+@keyframes orbitOne{to{transform:rotate(326deg) rotateY(58deg)}}
+@keyframes orbitTwo{to{transform:rotate(405deg) rotateX(65deg)}}
+.scroll-note{position:absolute;bottom:28px;left:0;display:flex;align-items:center;gap:13px;color:#77736c;font-size:9px;letter-spacing:.17em;text-transform:uppercase}
+.scroll-note span{width:36px;height:1px;background:var(--gold)}
+
+/* TICKER */
+.ticker{overflow:hidden;border-block:1px solid var(--line);background:#0d0d0c;padding:20px 0}
+.ticker-track{display:flex;width:max-content;animation:tickerMove 32s linear infinite}
+.ticker-track span{font-family:var(--serif);font-size:clamp(19px,2.3vw,28px);color:#bcb5a7;padding-inline:30px;white-space:nowrap}
+.ticker-track i{color:var(--gold);font-style:normal;padding-left:48px}
+@keyframes tickerMove{to{transform:translateX(-50%)}}
+
+/* MANIFESTO */
+.manifesto{padding-block:170px;display:grid;grid-template-columns:.65fr 1.6fr;gap:70px}
+.manifesto-side{padding-top:10px}
+.manifesto-side p{color:var(--muted);font-size:11px;line-height:2;margin-top:20px;max-width:220px}
+.manifesto-main{font-family:var(--serif);font-size:clamp(37px,5.7vw,76px);line-height:1.12;letter-spacing:-.025em;color:#dedad2}
+.manifesto-main span{color:#706b62}
+.manifesto-main em{color:var(--gold);font-style:normal}
+.manifesto-bottom{grid-column:2;display:flex;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:23px;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.9}
+
+/* PROJECTS */
+.work{padding-block:110px 150px;border-top:1px solid var(--line);background:#0c0c0b}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:65px}
+.section-top .eyebrow{margin-bottom:22px}
+.section-note{color:var(--muted);font-size:11px;line-height:1.9;max-width:230px}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px 25px}
+.project:nth-child(even){margin-top:100px}
+.project-art{aspect-ratio:1.22;position:relative;overflow:hidden;isolation:isolate;display:grid;place-items:center;background:#171613;border:1px solid rgba(255,255,255,.055)}
+.project-art::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border:1px solid rgba(255,255,255,.025)}
+.art-word{position:relative;z-index:3;font-family:var(--serif);font-size:clamp(34px,5.3vw,75px);letter-spacing:.04em;text-align:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.project:hover .art-word{transform:scale(1.07)}
+.art-label{position:absolute;bottom:24px;left:25px;z-index:3;color:rgba(255,255,255,.65);font-size:8px;letter-spacing:.19em}
+.art-number{position:absolute;top:24px;right:25px;z-index:3;color:rgba(255,255,255,.65);font-size:9px}
+.art-maison{background:radial-gradient(ellipse at 50% 70%,#8b694c 0%,transparent 35%),linear-gradient(125deg,#29211c,#100e0c 58%,#47362a)}
+.art-maison .art-word{color:#e9dcc9;letter-spacing:.13em}
+.art-maison::before{content:"";position:absolute;width:37%;height:72%;border:1px solid rgba(221,190,149,.42);background:linear-gradient(130deg,rgba(255,255,255,.12),transparent 45%,rgba(0,0,0,.5));box-shadow:0 25px 80px #000;transform:perspective(400px) rotateY(-14deg) rotateZ(3deg)}
+.art-forma{background:radial-gradient(ellipse at 50% 45%,#ded7c9,#a49b8d 50%,#716b61);color:#24221e}
+.art-forma .art-word{color:#28251f;font-size:clamp(42px,6vw,88px)}
+.art-forma::before{content:"";position:absolute;width:34%;height:55%;border-radius:48% 48% 10% 10%;background:linear-gradient(105deg,#f5f0e8 0%,#b9b2a5 25%,#6e6a62 55%,#eee8dc 78%,#8b8479);box-shadow:24px 35px 70px rgba(0,0,0,.25);transform:rotate(11deg)}
+.art-atelier{background:radial-gradient(ellipse at 30% 100%,rgba(193,151,105,.3),transparent 50%),linear-gradient(145deg,#25201b,#10100f 60%,#35302a)}
+.art-atelier .art-word{color:#e0c9a5}
+.art-atelier::before{content:"";position:absolute;width:43%;height:65%;border:1px solid rgba(209,182,145,.7);border-radius:48% 48% 2% 2%;background:linear-gradient(100deg,transparent,rgba(210,180,137,.18),transparent);transform:translateY(-5%) rotate(-12deg);box-shadow:inset 0 0 35px rgba(207,173,128,.09)}
+.art-casa{background:radial-gradient(circle at 50% 45%,#805b41,transparent 50%),linear-gradient(130deg,#3b271e,#140f0d 70%)}
+.art-casa .art-word{color:#f0ddc3}
+.art-casa::before{content:"";position:absolute;width:34%;height:65%;background:linear-gradient(110deg,#e4c7a1,#4c2e20 24%,#27180f 56%,#c6a07a 76%,#5e3d2b);clip-path:polygon(50% 0,100% 23%,88% 100%,12% 100%,0 23%);filter:drop-shadow(0 25px 45px #000);opacity:.8}
+.project-meta{display:flex;justify-content:space-between;align-items:start;gap:15px;padding-top:21px}
+.project-meta h3{font-family:var(--serif);font-size:29px;font-weight:400}
+.project-meta p{color:var(--muted);font-size:10px;margin-top:7px}
+.project-tag{border:1px solid var(--line);padding:7px 10px;color:#b6afa2;font-size:8px;letter-spacing:.1em;white-space:nowrap}
+
+/* APPROACH */
+.approach{padding-block:160px}
+.approach-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:80px;align-items:end}
+.approach-intro p{max-width:360px;color:var(--muted);font-size:12px;line-height:2}
+.approach-list{border-top:1px solid var(--line)}
+.approach-item{display:grid;grid-template-columns:70px 1fr 1fr 30px;gap:24px;align-items:center;padding-block:30px;border-bottom:1px solid var(--line)}
+.approach-item .number{color:var(--gold);font-size:10px}
+.approach-item h3{font-family:var(--serif);font-size:clamp(25px,3vw,38px);font-weight:400}
+.approach-item p{font-size:11px;line-height:1.9;color:var(--muted);max-width:320px}
+.approach-item .arrow{color:var(--gold);font-size:18px;transition:transform .3s}
+.approach-item:hover .arrow{transform:translate(4px,-4px)}
+
+/* STUDIO */
+.studio{padding-block:115px;border-block:1px solid var(--line);background:radial-gradient(ellipse at 90% 50%,rgba(180,151,110,.07),transparent 40%),#0d0d0c}
+.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.studio-visual{min-height:440px;position:relative;display:grid;place-items:center;border:1px solid var(--line);overflow:hidden;background:radial-gradient(ellipse at center,#25221d,#0d0d0c 70%)}
+.studio-visual::before,.studio-visual::after{content:"";position:absolute;border:1px solid rgba(200,178,139,.25);border-radius:50%;width:300px;height:300px;transform:rotateX(65deg) rotate(-30deg)}
+.studio-visual::after{width:230px;height:380px;transform:rotateY(60deg) rotate(30deg);border-color:rgba(240,237,230,.2)}
+.studio-mark{font-family:var(--serif);font-size:clamp(65px,9vw,115px);letter-spacing:.08em;color:transparent;-webkit-text-stroke:1px #bba780;position:relative;z-index:1}
+.studio-content .eyebrow{margin-bottom:24px}
+.studio-content p{color:var(--muted);font-size:12px;line-height:2.1;margin-top:24px;max-width:420px}
+.studio-details{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:35px;border-top:1px solid var(--line);padding-top:25px}
+.studio-details span{display:block;font-size:9px;color:var(--muted);margin-top:8px}
+.studio-details strong{font-size:10px;font-weight:500;letter-spacing:.08em}
+
+/* CONTACT — GMAIL OPENS IN BROWSER */
+.contact{padding-block:170px 140px;text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.contact::before{content:"";position:absolute;z-index:-1;width:700px;height:700px;border-radius:50%;left:50%;top:48%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(188,155,107,.12),transparent 65%)}
+.contact .eyebrow{margin-bottom:32px}
+.contact-title{font-family:var(--serif);font-weight:400;font-size:clamp(57px,10vw,132px);line-height:.92;letter-spacing:-.04em}
+.contact-title em{display:block;font-weight:400;color:var(--gold)}
+.contact-copy{max-width:400px;margin:28px auto 0;color:var(--muted);font-size:12px;line-height:2}
+.contact-actions{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:18px;margin-top:40px}
+.contact-actions .button-primary{padding:19px 25px}
+.button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--line);padding:18px 22px;color:#d0cbc2;font-size:10px;letter-spacing:.1em;transition:border-color .3s,color .3s}
+.button-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.contact-email{display:inline-block;margin-top:38px;color:#a9a399;font-size:11px;border-bottom:1px solid #4b463e;padding-bottom:6px;transition:color .3s}
+.contact-email:hover{color:var(--gold)}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);padding-block:28px}
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:25px}
+.footer-brand{font-family:var(--serif);letter-spacing:.12em;font-size:20px}
+.footer-top p{color:var(--muted);font-size:10px;text-align:right}
+.footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:20px;color:#77736b;font-size:9px}
+.footer-links{display:flex;gap:20px}
+.footer-links a:hover{color:var(--gold)}
+
+/* REVEALS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+@media(max-width:900px){
+  .wrap{width:calc(100% - 56px)}
+  .hero{grid-template-columns:1fr 1fr;min-height:690px}
+  .hero-title{font-size:clamp(66px,10vw,110px)}
+  .hero-visual{min-height:420px}
+  .manifesto{gap:35px}
+  .studio-grid{gap:50px}
+  .studio-visual{min-height:360px}
+  .approach-item{grid-template-columns:40px 1fr 1fr 20px;gap:15px}
+}
+@media(max-width:640px){
+  .wrap{width:calc(100% - 38px)}
+  .nav{height:70px}
+  .nav-logo{font-size:18px}
+  .nav-links{gap:0}
+  .nav-links a:not(.nav-cta){display:none}
+  .nav-cta{padding:11px 12px;font-size:9px}
+  .hero{display:flex;flex-direction:column;align-items:stretch;min-height:unset;padding-top:78px;padding-bottom:65px}
+  .hero-copy{padding:0}
+  .hero-title{font-size:clamp(76px,17vw,112px)}
+  .hero-description{margin-top:28px}
+  .hero-visual{min-height:360px;margin-top:12px}
+  .orb-scene{max-width:390px}
+  .visual-caption{left:0;bottom:4%}
+  .visual-index{bottom:3%}
+  .scroll-note{bottom:18px}
+  .ticker{padding-block:16px}
+  .manifesto{padding-block:100px;grid-template-columns:1fr;gap:30px}
+  .manifesto-main{font-size:clamp(40px,10vw,65px)}
+  .manifesto-bottom{grid-column:1;flex-direction:column;gap:15px}
+  .work{padding-block:85px 100px}
+  .section-top{flex-direction:column;align-items:start;margin-bottom:40px}
+  .project-grid{grid-template-columns:1fr;gap:45px}
+  .project:nth-child(even){margin-top:0}
+  .art-word{font-size:53px}
+  .project-meta h3{font-size:25px}
+  .approach{padding-block:100px}
+  .approach-intro{grid-template-columns:1fr;gap:25px;margin-bottom:45px}
+  .approach-item{grid-template-columns:30px 1fr 20px;gap:12px;padding-block:23px}
+  .approach-item p{grid-column:2;grid-row:2}
+  .approach-item .arrow{grid-column:3;grid-row:1}
+  .studio{padding-block:80px}
+  .studio-grid{grid-template-columns:1fr;gap:40px}
+  .studio-visual{min-height:310px}
+  .contact{padding-block:110px 95px}
+  .contact-title{font-size:clamp(58px,13vw,90px)}
+  .contact-actions{flex-direction:column;align-items:stretch;max-width:330px;margin-inline:auto}
+  .contact-actions a{width:100%}
+  .footer-top{align-items:flex-start;flex-direction:column}
+  .footer-top p{text-align:left}
+  .footer-bottom{flex-direction:column;line-height:1.8}
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro" id="intro" aria-label="Vélora Studio introduction">
+  <div class="intro-inner">
+    <div class="intro-logo">VÉLORA<sup>®</sup></div>
+    <div class="intro-rule"></div>
+    <p class="intro-sub">An independent digital studio</p>
+  </div>
+  <button class="intro-skip" id="skipIntro">ENTER STUDIO ↗</button>
+</div>
+
+<header class="wrap nav">
+  <a class="nav-logo" href="#home" aria-label="Vélora Studio home">VÉLORA<sup>®</sup></a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="#work">Selected work</a>
+    <a href="#studio">The studio</a>
+    <a class="nav-cta" href="#contact">LET'S TALK ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="wrap hero" id="home">
+  <div class="hero-copy">
+    <p class="eyebrow">Independent digital studio · 001</p>
+    <h1 class="hero-title">
+      <span>Not made</span>
+      <span class="outline">to fit.</span>
+      <span>Made to</span>
+      <span>be felt.</span>
+    </h1>
+    <p class="hero-description">We create distinctive digital experiences for brands that refuse to disappear into the ordinary.</p>
+    <div class="hero-actions">
+      <a class="button-primary" href="#work">EXPLORE OUR WORLD <span>↗</span></a>
+      <a class="text-link" href="#studio">A LITTLE ABOUT US</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-label="Abstract metallic sculpture">
+    <div class="orb-scene" id="orbScene">
+      <div class="orb-halo"></div>
+      <div class="orbit one"></div>
+      <div class="orbit two"></div>
+      <div class="orbit three"></div>
+      <div class="orb"></div>
+      <div class="orb-dot"></div>
+    </div>
+    <div class="visual-caption">Beyond the expected.<small>FORM / FEELING / FUNCTION</small></div>
+    <div class="visual-index">OBJECT Nº 001 — VÉLORA</div>
+  </div>
+  <div class="scroll-note"><span></span> Scroll to explore</div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track" aria-hidden="true">
+    <span>Digital with intention <i>✳</i></span>
+    <span>Distinct by design <i>✳</i></span>
+    <span>Made to be remembered <i>✳</i></span>
+    <span>Never ordinary <i>✳</i></span>
+    <span>Digital with intention <i>✳</i></span>
+    <span>Distinct by design <i>✳</i></span>
+    <span>Made to be remembered <i>✳</i></span>
+    <span>Never ordinary <i>✳</i></span>
+  </div>
+</div>
+
+<section class="wrap manifesto reveal">
+  <div class="manifesto-side">
+    <p class="eyebrow">01 / The philosophy</p>
+    <p>For brands with a point of view. For ideas that deserve more than a template.</p>
+  </div>
+  <div class="manifesto-main">
+    The internet has enough noise.
+    <span>We're here to create the things that make people</span>
+    <em>stop, look, and feel something.</em>
+  </div>
+  <div class="manifesto-bottom">
+    <p>Strategy meets instinct. Digital meets emotion.<br>Every detail has a reason to exist.</p>
+    <p>Less expected.<br>More unforgettable. ↗</p>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-top reveal">
+      <div>
+        <p class="eyebrow">02 / The portfolio</p>
+        <h2 class="section-heading">Worlds of<br><em>our own.</em></h2>
+      </div>
+      <p class="section-note">A collection of visual directions and concept brands. Each one begins with a feeling and becomes an experience.</p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project reveal">
+        <div class="project-art art-maison">
+          <span class="art-number">CONCEPT 001</span><span class="art-word">MAISON<br>NOIRE</span><span class="art-label">A STUDY IN DARK LUXURY</span>
+        </div>
+        <div class="project-meta"><div><h3>Maison Noire</h3><p>Digital direction · Luxury fashion</p></div><span class="project-tag">CONCEPT</span></div>
+      </article>
+      <article class="project reveal">
+        <div class="project-art art-forma">
+          <span class="art-number">CONCEPT 002</span><span class="art-word">FORMA</span><span class="art-label">OBJECTS WITH PRESENCE</span>
+        </div>
+        <div class="project-meta"><div><h3>Forma Objects</h3><p>Art direction · Modern interiors</p></div><span class="project-tag">CONCEPT</span></div>
+      </article>
+      <article class="project reveal">
+        <div class="project-art art-atelier">
+          <span class="art-number">CONCEPT 003</span><span class="art-word">ATELIER<br>SOL</span><span class="art-label">BEAUTY IN THE DETAILS</span>
+        </div>
+        <div class="project-meta"><div><h3>Atelier Sol</h3><p>Brand experience · Beauty</p></div><span class="project-tag">CONCEPT</span></div>
+      </article>
+      <article class="project reveal">
+        <div class="project-art art-casa">
+          <span class="art-number">CONCEPT 004</span><span class="art-word">CASA CACAO</span><span class="art-label">A MORE INDULGENT WORLD</span>
+        </div>
+        <div class="project-meta"><div><h3>Casa Cacao</h3><p>Digital storytelling · Desserts</p></div><span class="project-tag">CONCEPT</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="wrap approach reveal">
+  <div class="approach-intro">
+    <div><p class="eyebrow">03 / The approach</p><h2 class="section-heading">Pretty is<br><em>not enough.</em></h2></div>
+    <p>A beautiful website catches the eye. A thoughtful one builds trust, tells a story, and gives people a reason to remember the brand. We care about the whole experience.</p>
+  </div>
+  <div class="approach-list">
+    <div class="approach-item"><span class="number">01</span><h3>Art direction</h3><p>A distinct visual language, intentional typography, and an atmosphere that feels unmistakably yours.</p><span class="arrow">↗</span></div>
+    <div class="approach-item"><span class="number">02</span><h3>Digital design</h3><p>Carefully considered layouts, smooth interactions, and a visual experience that works across screens.</p><span class="arrow">↗</span></div>
+    <div class="approach-item"><span class="number">03</span><h3>Brand storytelling</h3><p>Turning your ideas, products, and personality into a digital world people want to explore.</p><span class="arrow">↗</span></div>
+    <div class="approach-item"><span class="number">04</span><h3>Web experiences</h3><p>Websites designed to introduce your brand, showcase your work, and make the next step obvious.</p><span class="arrow">↗</span></div>
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="wrap studio-grid">
+    <div class="studio-visual reveal" aria-label="Vélora abstract studio artwork"><div class="studio-mark">VÉLORA</div></div>
+    <div class="studio-content reveal">
+      <p class="eyebrow">04 / The studio</p>
+      <h2 class="section-heading">Small studio.<br><em>Big feelings.</em></h2>
+      <p>VÉLORA is an independent digital design studio built around one belief: your online presence should feel as considered as the brand behind it.</p>
+      <p>From the first impression to the smallest interaction, we aim to make every detail feel intentional. No copy-and-paste identities. No design without a point of view.</p>
+      <div class="studio-details">
+        <div><strong>OUR APPROACH</strong><span>Curious. Considered. Distinct.</span></div>
+        <div><strong>OUR STANDARD</strong><span>Thought in every detail.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <p class="eyebrow">05 / Your next chapter starts here</p>
+    <h2 class="contact-title">Have a vision?<em>Let's make it</em> unforgettable.</h2>
+    <p class="contact-copy">Have a business, a big idea, or a brand ready for its next chapter? Tell us what you're imagining. Let's create something extraordinary.</p>
+
+    <div class="contact-actions">
+      <!-- INSTAGRAM: OPENS YOUR PROFILE -->
+      <a class="button-primary" href="https://www.instagram.com/velora.studio_co/" target="_blank" rel="noopener noreferrer">
+        <span>LET'S START A CONVERSATION</span><span>↗</span>
+      </a>
+
+      <!-- GMAIL: OPENS IN THE BROWSER, NOT OUTLOOK -->
+      <a class="button-secondary"
+         href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello.velora.3%40gmail.com&amp;su=Website%20Enquiry%20-%20VELORA%20STUDIO"
+         target="_blank" rel="noopener noreferrer">
+        <span>WRITE US AN EMAIL</span><span>↗</span>
+      </a>
+    </div>
+
+    <!-- CLICKING THE ADDRESS ALSO OPENS GMAIL IN THE BROWSER -->
+    <a class="contact-email"
+       href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello.velora.3%40gmail.com"
+       target="_blank" rel="noopener noreferrer">
+      hello.velora.3@gmail.com
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-brand" href="#home">VÉLORA STUDIO®</a>
+      <p>Digital experiences. Designed to be remembered.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> VÉLORA STUDIO. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/velora.studio_co/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello.velora.3%40gmail.com" target="_blank" rel="noopener noreferrer">EMAIL ↗</a>
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* INTRO */
+const intro = document.getElementById("intro");
+const skipIntro = document.getElementById("skipIntro");
+let introClosed = false;
+
+function closeIntro() {
+  if (introClosed) return;
+  introClosed = true;
+  intro.classList.add("exit");
+  window.setTimeout(() => { intro.style.display = "none"; }, 1200);
+}
+
+skipIntro.addEventListener("click", closeIntro);
+window.addEventListener("load", () => window.setTimeout(closeIntro, 2200));
+
+/* SCROLL REVEALS */
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("visible"));
+}
+
+/* SUBTLE SCULPTURE MOVEMENT */
+const scene = document.getElementById("orbScene");
+const finePointer = window.matchMedia("(pointer: fine)").matches;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (finePointer && !reducedMotion) {
+  document.addEventListener("mousemove", event => {
+    const x = (event.clientX / window.innerWidth - 0.5) * 7;
+    const y = (event.clientY / window.innerHeight - 0.5) * -7;
+    scene.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+
+  document.addEventListener("mouseleave", () => { scene.style.transform = ""; });
+}
+
+/* FOOTER YEAR */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
